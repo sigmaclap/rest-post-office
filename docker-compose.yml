@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  social-media-api:
+    build: .
+    container_name: post-office
+    ports:
+      - "8080:8080"
+    depends_on:
+      - post-db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://post-db:5432/mailing
+      - DATABASE_NAME=admin
+      - DATABASE_PASSWORD=admin
+
+  post-db:
+    image: postgres:15-alpine
+    container_name: post-db
+    ports:
+      - "6541:5432"
+    environment:
+      - POSTGRES_DB=mailing
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
