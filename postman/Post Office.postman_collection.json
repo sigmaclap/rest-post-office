@@ -1,0 +1,477 @@
+{
+	"info": {
+		"_postman_id": "21db3a13-b044-478f-9d30-b6afe0014015",
+		"name": "Post Office",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21528363"
+	},
+	"item": [
+		{
+			"name": "Create mailing 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"type\" : \"LETTER\",\r\n    \"indexRecipient\" : \"424556\",\r\n    \"addressRecipient\" : \"Люблино\",\r\n    \"nameRecipient\" : \"Мага\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/mailing",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"mailing"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create mailing 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"type\" : \"PACKAGE\",\r\n    \"indexRecipient\" : \"425252\",\r\n    \"addressRecipient\" : \"Владик\",\r\n    \"nameRecipient\" : \"Саня\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/mailing",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"mailing"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create mailing 3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"type\" : \"PARCEL\",\r\n    \"indexRecipient\" : \"458585\",\r\n    \"addressRecipient\" : \"ХЗ\",\r\n    \"nameRecipient\" : \"ХЗ\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/mailing",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"mailing"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Post Office",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"indexOffice\" : \"428585\",\r\n    \"nameOffice\" : \"Жулебино\",\r\n    \"addressOffice\" : \"Ленина\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/office",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"office"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Approve arrival at the post office",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/mailing/approve/:mailingId/office/:officeId",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"mailing",
+						"approve",
+						":mailingId",
+						"office",
+						":officeId"
+					],
+					"variable": [
+						{
+							"key": "mailingId",
+							"value": "1"
+						},
+						{
+							"key": "officeId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Departure arrival at the post office",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/mailing/departure/:mailingId/office/:officeId",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"mailing",
+						"departure",
+						":mailingId",
+						"office",
+						":officeId"
+					],
+					"variable": [
+						{
+							"key": "mailingId",
+							"value": "1"
+						},
+						{
+							"key": "officeId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Post Office",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"indexOffice\" : \"333333\",\r\n    \"nameOffice\" : \"Второй\",\r\n    \"addressOffice\" : \"Офис\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/office",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"office"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Approve arrival at the post office",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/mailing/approve/:mailingId/office/:officeId",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"mailing",
+						"approve",
+						":mailingId",
+						"office",
+						":officeId"
+					],
+					"variable": [
+						{
+							"key": "mailingId",
+							"value": "1"
+						},
+						{
+							"key": "officeId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Completion arrival at the post office",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/mailing/completion/:mailingId",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"mailing",
+						"completion",
+						":mailingId"
+					],
+					"variable": [
+						{
+							"key": "mailingId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get info by Mailing ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/tracking/:mailingId",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"tracking",
+						":mailingId"
+					],
+					"variable": [
+						{
+							"key": "mailingId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Status by Mailing ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/tracking/:mailingId/status",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"tracking",
+						":mailingId",
+						"status"
+					],
+					"variable": [
+						{
+							"key": "mailingId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}
