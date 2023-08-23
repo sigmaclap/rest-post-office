@@ -1,6 +1,6 @@
 version: '3.8'
 services:
-  social-media-api:
+  post-office:
     build: .
     container_name: post-office
     ports:
